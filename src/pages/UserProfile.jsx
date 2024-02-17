@@ -5,7 +5,6 @@ import LinkIcon from "@mui/icons-material/Link";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ApartmentIcon from "@mui/icons-material/Apartment";
-import SearchBar from "../components/SearchBar";
 
 const UserProfile = () => {
   const BASE_URL = "https://api.github.com";
@@ -27,7 +26,7 @@ const UserProfile = () => {
     };
 
     fetchData();
-  }, []);
+  });
 
   return (
     <Box component="div">
@@ -137,12 +136,13 @@ const UserProfile = () => {
             variant="body1"
             component="p"
           >
-            Joined at {user?.created_at}
+            Joined at{" "}
+            {user?.created_at.slice(0, 10).split("-").reverse().join("-")}
           </Typography>
           <Typography
             sx={{
               display: "flex",
-              alignItems: "center",
+              alignItems: "flex-start",
               justifyContent: "end",
             }}
             align="right"
@@ -158,28 +158,45 @@ const UserProfile = () => {
               </Typography>
             )}
           </Typography>
-          <Link
-            sx={{
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "end",
-            }}
-            target="_blank"
-            rel="noreferrer"
-            underline="none"
-            href={user?.blog ? user?.blog : "#"}
-            align="right"
-            variant="subtitle1"
-            component="a"
-          >
-            <LinkIcon sx={{ fontSize: 22, paddingRight: "5px" }} />
-            {user?.blog ? user?.blog : "Not availabe"}
-          </Link>
           <Typography
             sx={{
               display: "flex",
-              alignItems: "center",
+              alignItems: "flex-start",
+              justifyContent: "end",
+            }}
+            align="right"
+            variant="subtitle1"
+            component="p"
+          >
+            <LinkIcon sx={{ fontSize: 22, paddingRight: "5px" }} />
+            {user?.blog ? (
+              <Link
+                sx={{
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "flex-start",
+                  justifyContent: "end",
+                }}
+                target="_blank"
+                rel="noreferrer"
+                underline="none"
+                href={user?.blog ? user?.blog : "#"}
+                align="right"
+                variant="subtitle1"
+                component="a"
+              >
+                {user?.blog}
+              </Link>
+            ) : (
+              <Typography sx={{ color: "gray" }} component="span">
+                Not availabe
+              </Typography>
+            )}
+          </Typography>
+          <Typography
+            sx={{
+              display: "flex",
+              alignItems: "flex-start",
               justifyContent: "end",
             }}
             align="right"
@@ -198,7 +215,7 @@ const UserProfile = () => {
           <Typography
             sx={{
               display: "flex",
-              alignItems: "center",
+              alignItems: "flex-start",
               justifyContent: "end",
             }}
             align="right"

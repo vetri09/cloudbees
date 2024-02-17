@@ -24,7 +24,7 @@ const App = () => {
             padding: "12px 15px 12px 20px",
           }}
         >
-          <Link to={"/"} underline="none" sx={{ underline: "none" }}>
+          <Link to={"/cloudbees"} underline="none" sx={{ underline: "none" }}>
             <Typography variant="h6" component="h1" sx={{ color: "lightgray" }}>
               Github Application
             </Typography>
@@ -33,7 +33,7 @@ const App = () => {
         </Toolbar>
       </AppBar>
       <Routes>
-        <Route path="/" element={<UserList />} />
+        <Route path="/cloudbees" element={<UserList />} />
         <Route path="/profile/:login" element={<UserProfile />} />
       </Routes>
     </Router>

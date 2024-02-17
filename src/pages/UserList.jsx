@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Box, Container, Stack } from "@mui/material";
 import UserCard from "../components/UserCard";
 import ShimmerCard from "../components/ShimmerCard";
-import SearchBar from "../components/SearchBar";
 
 const UserList = () => {
   const BASE_URL = "https://api.github.com";
@@ -36,9 +35,9 @@ const UserList = () => {
   //   }
   // };
 
-  const fetchData = () => {
-    setPerPage(perPage + 12);
-  };
+  // const fetchData = () => {
+  //   setPerPage(perPage + 12);
+  // };
 
   return (
     <Box component="div">
