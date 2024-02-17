@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import UserList from "./pages/UserList";
+import UserProfile from "./pages/UserProfile";
+import { AppBar, Toolbar, Typography } from "@mui/material";
+import SearchBar from "./components/SearchBar";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Router>
+      <AppBar
+        position="static"
+        sx={{
+          backgroundColor: "#2c2c2c",
+          color: "lightgray",
+          marginBottom: "40px",
+        }}
+      >
+        <Toolbar
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            padding: "12px 15px 12px 20px",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Link to={"/"} underline="none" sx={{ underline: "none" }}>
+            <Typography variant="h6" component="h1" sx={{ color: "lightgray" }}>
+              Github Application
+            </Typography>
+          </Link>
+          <SearchBar />
+        </Toolbar>
+      </AppBar>
+      <Routes>
+        <Route path="/" element={<UserList />} />
+        <Route path="/profile/:login" element={<UserProfile />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
