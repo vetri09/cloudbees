@@ -24,11 +24,14 @@ const App = () => {
             padding: "12px 15px 12px 20px",
           }}
         >
-          <Link to={"/cloudbees"} underline="none" sx={{ underline: "none" }}>
-            <Typography variant="h6" component="h1" sx={{ color: "lightgray" }}>
+          <Typography variant="h6" component="h1">
+            <Link
+              to={"/cloudbees"}
+              style={{ textDecoration: "none", color: "lightgray" }}
+            >
               Github Application
-            </Typography>
-          </Link>
+            </Link>
+          </Typography>
           <SearchBar />
         </Toolbar>
       </AppBar>

@@ -161,7 +161,7 @@ const UserProfile = () => {
           <Typography
             sx={{
               display: "flex",
-              alignItems: "flex-start",
+              alignItems: "center",
               justifyContent: "end",
             }}
             align="right"
@@ -173,9 +173,6 @@ const UserProfile = () => {
               <Link
                 sx={{
                   cursor: "pointer",
-                  display: "flex",
-                  alignItems: "flex-start",
-                  justifyContent: "end",
                 }}
                 target="_blank"
                 rel="noreferrer"
